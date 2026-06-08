@@ -1,0 +1,146 @@
+{
+  "name": "next-pandal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Interactive Digital Vesak Thorana",
+  "author": {
+    "name": "Brainstorm.lk",
+    "email": "contact@brainstorm.lk"
+  },
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint",
+    "electron:dev": "cross-env NODE_ENV=development electron .",
+    "electron:build": "next build --webpack && electron-builder --win",
+    "electron:dir": "next build --webpack && electron-builder --win --dir",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.9",
+    "firebase": "^12.13.0",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.8.0",
+    "next": "16.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "cross-env": "^10.1.0",
+    "electron": "^42.3.3",
+    "electron-builder": "^26.15.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.4",
+    "tailwindcss": "^4"
+  },
+  "build": {
+    "appId": "com.brainstormlk.vesakthorana",
+    "productName": "Vesak Thorana",
+    "copyright": "Copyright © 2026 Brainstorm.lk",
+    "directories": {
+      "output": "dist-electron",
+      "buildResources": "build"
+    },
+    "asar": true,
+    "asarUnpack": [
+      ".next/**/*",
+      "public/**/*"
+    ],
+    "files": [
+      "**/*",
+      "!src/**",
+      "!public/**",
+      "!.next/**",
+      "!build/**",
+      "!dist-electron/**",
+      "!**/*.map",
+      "!**/*.d.ts",
+      "!**/test/**",
+      "!**/__tests__/**",
+      "!**/*.md",
+      "!node_modules/electron/**",
+      "!node_modules/electron-builder/**",
+      "!node_modules/app-builder-lib/**",
+      "!node_modules/builder-util/**",
+      "!node_modules/builder-util-runtime/**",
+      "!node_modules/dmg-builder/**",
+      "!node_modules/@electron/**",
+      "!node_modules/@develar/**",
+      "!node_modules/7zip-bin/**",
+      "!node_modules/eslint/**",
+      "!node_modules/eslint-*/**",
+      "!node_modules/@eslint/**",
+      "!node_modules/@eslint-community/**",
+      "!node_modules/tailwindcss/**",
+      "!node_modules/@tailwindcss/**",
+      "!node_modules/cross-env/**",
+      "!node_modules/.cache/**",
+      "!node_modules/.bin/**",
+      "!node_modules/png-to-ico/**"
+    ],
+    "extraResources": [
+      { "from": ".next", "to": "app/.next", "filter": ["**/*", "!cache/**/*"] },
+      { "from": "public", "to": "app/public" },
+      {
+        "from": "node_modules",
+        "to": "app/node_modules",
+        "filter": [
+          "**/*",
+          "!electron/**",
+          "!electron-builder/**",
+          "!app-builder-lib/**",
+          "!app-builder-bin/**",
+          "!builder-util/**",
+          "!builder-util-runtime/**",
+          "!dmg-builder/**",
+          "!@electron/**",
+          "!@develar/**",
+          "!7zip-bin/**",
+          "!eslint/**",
+          "!eslint-*/**",
+          "!@eslint/**",
+          "!@eslint-community/**",
+          "!tailwindcss/**",
+          "!@tailwindcss/**",
+          "!cross-env/**",
+          "!png-to-ico/**",
+          "!.cache/**",
+          "!.bin/**",
+          "!**/*.md",
+          "!**/test/**",
+          "!**/tests/**",
+          "!**/__tests__/**",
+          "!**/*.test.*",
+          "!**/*.spec.*",
+          "!**/example/**",
+          "!**/examples/**",
+          "!**/docs/**",
+          "!**/.github/**",
+          "!**/*.map"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Vesak Thorana",
+      "uninstallDisplayName": "Vesak Thorana"
+    }
+  }
+}
