@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  @font-face { font-family: 'UNArundathee'; src: url('/Fonts/UN-Arundathee.ttf') format('truetype'); }
+  @font-face { font-family: 'UNAlakamanda'; src: url('/Fonts/UN-Alakamanda.ttf') format('truetype'); }
+  @font-face { font-family: 'UNGurulugomi'; src: url('/Fonts/UN-Gurulugomi.ttf') format('truetype'); }
+  @font-face { font-family: 'UNSamantha'; src: url('/Fonts/UN-Samantha.ttf') format('truetype'); }
+  @font-face { font-family: 'UNDavasa'; src: url('/Fonts/UN-Davasa.ttf') format('truetype'); }
+  @font-face { font-family: 'UNBasuru'; src: url('/Fonts/UN-Basuru.ttf') format('truetype'); }
+
+  body {
+    @apply bg-black text-white m-0 p-0 overflow-hidden font-['Noto_Sans_Sinhala',_sans-serif];
+  }
+}
+
+@keyframes soundWave {
+  0%, 100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1.3);
+  }
+}
